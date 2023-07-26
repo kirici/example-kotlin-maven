@@ -17,13 +17,14 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-          cache: 'maven'
+      - name: Maven clean
+        run: mvn clean --batch-mode
       - name: Set up codeql
         uses: github/codeql-action/init@v2
         with:
           languages: java
       - name: Build and test with Maven
-        run: mvn clean --batch-mode package
+        run: mvn --batch-mode package
       - name: Run codeql analysis
         uses: github/codeql-action/analyze@v2
 
