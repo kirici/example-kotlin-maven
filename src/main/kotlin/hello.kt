@@ -14,3 +14,7 @@ fun main(args: Array<String>) {
 
     }
 }
+
+fun foo(bar: Any?) {
+    val x = bar as String
+}
