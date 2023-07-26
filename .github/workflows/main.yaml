@@ -23,9 +23,7 @@ jobs:
       - name: Set up codeql
         uses: github/codeql-action/init@v2
         with:
-          languages: kotlin
-      - name: Autobuild
-        uses: github/codeql-action/autobuild@v2
+          languages: java
       - name: Run codeql analysis
         uses: github/codeql-action/analyze@v2
 
