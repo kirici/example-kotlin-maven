@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 # stage 1
-FROM maven:3.9.3-eclipse-temurin-17-focal AS builder
+FROM maven:3.9.3-eclipse-temurin-17 AS builder
 
 WORKDIR /app
 
