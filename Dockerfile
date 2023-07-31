@@ -6,7 +6,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN mvn --batch-mode -fn package
+RUN mvn --batch-mode package
 
 # stage 2
 FROM eclipse-temurin:17-jdk-jammy

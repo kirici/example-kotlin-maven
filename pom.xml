@@ -83,6 +83,7 @@
                         <phase>package</phase>
                         <goals><goal>check</goal></goals>
                         <configuration>
+                            <failBuildOnMaxIssuesReached>false</failBuildOnMaxIssuesReached>
                             <report>
                                 <report>sarif:target/reports/detekt.sarif</report>
                             </report>
