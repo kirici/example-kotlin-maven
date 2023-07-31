@@ -28,9 +28,6 @@ fun foo(bar: Any?) {
      * TEST
      * TEST
      * TEST
-     * TEST
-     * TEST
-     * TEST
      */
     val test = fool as String
     // TEST
