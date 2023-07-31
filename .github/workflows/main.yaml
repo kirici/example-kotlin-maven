@@ -3,6 +3,9 @@ name: "Build, Test, Scan"
 on:   
   push:
   workflow_dispatch:
+  on:
+  pull_request:
+    types: [opened, synchronize]
 jobs:
   jar:
     runs-on: ubuntu-latest
