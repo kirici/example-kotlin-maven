@@ -16,5 +16,14 @@ fun main(args: Array<String>) {
 }
 
 fun foo(bar: Any?) {
+    // TEST
     val x = bar as String
+    /*
+     * TEST
+     * TEST
+     * TEST
+     * TEST
+     * TEST
+     */
+    val y = bar as String
 }
