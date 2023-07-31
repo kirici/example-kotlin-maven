@@ -17,6 +17,7 @@ fun main(args: Array<String>) {
 
 fun foo(bar: Any?) {
     // TEST
+    // TEST
     val x = bar as String
     /*
      * TEST
@@ -24,6 +25,10 @@ fun foo(bar: Any?) {
      * TEST
      * TEST
      * TEST
+     * TEST
+     * TEST
      */
     val y = bar as String
+    // TEST
+    val z = bar as String
 }
