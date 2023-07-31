@@ -22,7 +22,6 @@ fun foo(bar: Any?) {
      * TEST
      * TEST
      */
-    val test = fool as String
     // TEST
     val y2 = bar as String
     // TEST
