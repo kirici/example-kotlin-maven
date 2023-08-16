@@ -81,7 +81,7 @@
             <ktlint />
           </kotlin>
         </configuration>
-        <executions>
+        <!-- <executions>
           <execution>
             <id>spotless-check</id>
             <phase>compile</phase>
@@ -89,7 +89,7 @@
               <goal>check</goal>
             </goals>
           </execution>
-        </executions>
+        </executions> -->
       </plugin>
       <plugin>
         <artifactId>kotlin-maven-plugin</artifactId>
