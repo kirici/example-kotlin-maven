@@ -78,18 +78,9 @@
         <version>2.38.0</version>
         <configuration>
           <kotlin>
-            <ktlint />
+            <diktat />
           </kotlin>
         </configuration>
-        <!-- <executions>
-          <execution>
-            <id>spotless-check</id>
-            <phase>compile</phase>
-            <goals>
-              <goal>check</goal>
-            </goals>
-          </execution>
-        </executions> -->
       </plugin>
       <plugin>
         <artifactId>kotlin-maven-plugin</artifactId>
