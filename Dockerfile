@@ -10,8 +10,6 @@ COPY . .
 
 RUN mvn --batch-mode package --no-transfer-progress
 
-RUN mvn --batch-mode spotless:check --no-transfer-progress || true
-
 # stage 2
 FROM eclipse-temurin:17-jdk-jammy
 
