@@ -20,7 +20,7 @@
                     <diktatConfigFile>diktat-analysis.yml</diktatConfigFile>
                     <inputs>
                         <input>${project.basedir}/src/main/kotlin</input>
-            <githubActions>true</githubActions>
+                        <githubActions>true</githubActions>
                     </inputs>
                 </configuration>
                 <executions>
