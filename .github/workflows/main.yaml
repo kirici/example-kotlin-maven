@@ -25,8 +25,11 @@ jobs:
         uses: github/codeql-action/init@v2
         with:
           languages: java
+      - name: Run diktat check
+        run: mvn --no-transfer-progress --batch-mode diktat:check@diktat
+        continue-on-error: true
       - name: Build and test with Maven
-        run: mvn --batch-mode -fn package
+        run: mvn -no-transfer-progress --batch-mode -fn package
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
         with:
