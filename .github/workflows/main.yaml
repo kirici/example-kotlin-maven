@@ -20,12 +20,12 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - name: Maven clean
-        run: mvn clean --batch-mode
+        run: mvn --no-transfer-progress --batch-mode clean
       - name: Run diktat check
         run: MAVEN_OPTS="--add-opens java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED" mvn --no-transfer-progress --batch-mode diktat:check@diktat -Ddiktat.githubActions=true
         continue-on-error: true
       - name: Build and test with Maven
-        run: mvn -no-transfer-progress --batch-mode -fn package
+        run: mvn --no-transfer-progress --batch-mode -fn package
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
         with:
