@@ -26,7 +26,7 @@ jobs:
         with:
           languages: java
       - name: Run diktat check
-        run: mvn --no-transfer-progress --batch-mode diktat:check@diktat
+        run: MAVEN_OPTS="--add-opens java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED" mvn --no-transfer-progress --batch-mode diktat:check@diktat -Ddiktat.githubActions=true
         continue-on-error: true
       - name: Build and test with Maven
         run: mvn -no-transfer-progress --batch-mode -fn package
