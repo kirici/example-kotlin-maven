@@ -17,6 +17,7 @@
                 <artifactId>diktat-maven-plugin</artifactId>
                 <version>${diktat.version}</version>
                 <configuration>
+                    <githubActions>true</githubActions>
                     <diktatConfigFile>diktat-analysis.yml</diktatConfigFile>
                     <inputs>
                         <input>${project.basedir}/src/main/kotlin</input>

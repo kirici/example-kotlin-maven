@@ -22,7 +22,9 @@ jobs:
       - name: Maven clean
         run: mvn --no-transfer-progress --batch-mode clean
       - name: Run diktat check
-        run: MAVEN_OPTS="--add-opens java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED" mvn --no-transfer-progress --batch-mode diktat:check@diktat -Ddiktat.githubActions=true
+        run: mvn --no-transfer-progress --batch-mode diktat:check@diktat
+        env: 
+          MAVEN_OPTS: "--add-opens java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED"
         continue-on-error: true
       - name: Build and test with Maven
         run: mvn --no-transfer-progress --batch-mode -fn package
