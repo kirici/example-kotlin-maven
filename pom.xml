@@ -8,81 +8,17 @@
   <properties>
     <kotlin.version>1.9.0</kotlin.version>
   </properties>
-  <repositories>
-    <repository>
-      <id>sonatype</id>
-      <url>https://central.sonatype.com/</url>
-    </repository>
-  </repositories>
   <dependencies>
     <dependency>
       <groupId>org.jetbrains.kotlin</groupId>
       <artifactId>kotlin-stdlib</artifactId>
       <version>${kotlin.version}</version>
     </dependency>
-    <dependency>
-      <groupId>com.pinterest.ktlint</groupId>
-      <artifactId>ktlint-reporter-sarif</artifactId>
-      <version>0.50.0</version>
-    </dependency>
   </dependencies>
   <build>
     <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
     <testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
     <plugins>
-      <!-- Add the download-maven-plugin to download Checkstyle -->
-      <plugin>
-        <groupId>com.googlecode.maven-download-plugin</groupId>
-        <artifactId>download-maven-plugin</artifactId>
-        <version>1.3.0</version>
-        <executions>
-          <execution>
-            <phase>process-resources</phase>
-            <goals>
-              <goal>wget</goal>
-            </goals>
-            <configuration>
-              <url>
-                https://github.com/checkstyle/checkstyle/releases/download/checkstyle-10.12.2/checkstyle-10.12.2-all.jar</url>
-              <outputFileName>checkstyle.jar</outputFileName>
-              <outputDirectory>${project.basedir}/checkstyle</outputDirectory>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <!-- Add the exec-maven-plugin -->
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <version>3.0.0</version>
-        <executions>
-          <execution>
-            <id>exec-maven-checkstyle</id>
-            <phase>test</phase>
-            <goals>
-              <goal>exec</goal>
-            </goals>
-            <configuration>
-              <executable>java</executable>
-              <arguments>
-                <argument>-jar</argument>
-                <argument>checkstyle/checkstyle.jar</argument>
-                <argument>-c</argument>
-                <argument>google_checks.xml</argument>
-                <argument>-f</argument>
-                <argument>sarif</argument>
-                <argument>-o</argument>
-                <argument>target/checkstyle-report.sarif</argument>
-                <argument>src/</argument>
-              </arguments>
-              <successCodes>
-                <successCode>0</successCode>
-                <successCode>1</successCode>
-              </successCodes>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
       <plugin>
         <artifactId>kotlin-maven-plugin</artifactId>
         <groupId>org.jetbrains.kotlin</groupId>

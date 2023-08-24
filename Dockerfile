@@ -6,8 +6,6 @@ WORKDIR /app
 
 COPY . .
 
-# RUN export MAVEN_OPTS="--add-opens java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED"
-
 RUN mvn --batch-mode package --no-transfer-progress
 
 # stage 2
