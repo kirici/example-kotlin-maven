@@ -1,6 +1,5 @@
 name: "Build, Test, Scan"
-
-on:   
+on:
   push:
   workflow_dispatch:
   pull_request:
@@ -8,7 +7,7 @@ on:
 jobs:
   jar:
     runs-on: ubuntu-latest
-    permissions: 
+    permissions:
       contents: read
       packages: write
       security-events: write
