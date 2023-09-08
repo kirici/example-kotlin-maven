@@ -19,6 +19,53 @@
     <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
     <testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
     <plugins>
+      <!-- Prep for exec-maven-plugin -->
+      <plugin>
+        <groupId>com.googlecode.maven-download-plugin</groupId>
+        <artifactId>download-maven-plugin</artifactId>
+        <version>1.3.0</version>
+        <executions>
+          <execution>
+            <id>download-sonarscanner</id>
+            <goals>
+              <goal>wget</goal>
+            </goals>
+            <configuration>
+              <url>
+                https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006.zip
+              </url>
+              <outputFileName>sonar-scanner.zip</outputFileName>
+              <outputDirectory>${project.basedir}/sonar</outputDirectory>
+              <unpack>true</unpack>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- Using the downloaded binary -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>3.0.0</version>
+        <executions>
+          <execution>
+            <id>exec-sonarscanner</id>
+            <phase>test</phase>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+            <configuration>
+              <executable>sonar/sonar-scanner-5.0.1.3006/bin/sonar-scanner</executable>
+              <!-- <arguments>
+                <argument>-Dsonar.someValueHere</argument>
+              </arguments> -->
+              <successCodes>
+                <successCode>0</successCode>
+                <successCode>1</successCode>
+              </successCodes>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
       <plugin>
         <artifactId>kotlin-maven-plugin</artifactId>
         <groupId>org.jetbrains.kotlin</groupId>
