@@ -128,7 +128,7 @@
         <version>1.23.0</version>
         <executions>
           <execution>
-            <phase>package</phase>
+            <phase>compile</phase>
             <goals>
               <goal>check</goal>
             </goals>
@@ -136,6 +136,7 @@
               <failBuildOnMaxIssuesReached>false</failBuildOnMaxIssuesReached>
               <report>
                 <report>sarif:target/reports/detekt.sarif</report>
+                <report>xml:reports/detekt.xml</report>
               </report>
             </configuration>
           </execution>
